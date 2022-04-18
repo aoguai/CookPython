@@ -1,4 +1,4 @@
-# python_cook
+# CookPython
 好的，今天我们来做菜！(python实现版本)
 
 对原项目的python实现。支持模糊查找。同时提供了json数据。
