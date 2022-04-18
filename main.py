@@ -37,12 +37,19 @@ def get_cook(key):
     fuzzyfinder_i_len = len(fuzzyfinder_i_list)
     if fuzzyfinder_i_len > 0:
         if collection_key[fuzzyfinder_i_list[0]].replace("、", "") == key.replace("、", ""):
-            "".join([al_dict['name'][fuzzyfinder_i_list[0]], "丨", al_dict['ingredients'][fuzzyfinder_i_list[0]],
-                     "\nB站教程BV号：", al_dict['url'][fuzzyfinder_i_list[0]], "\n难度：",
-                     al_dict['difficulty'][fuzzyfinder_i_list[0]], "丨标签：", al_dict['tag'][fuzzyfinder_i_list[0]],
-                     "\n方法：", al_dict['practice'][fuzzyfinder_i_list[0]], "丨工具：",
-                     al_dict['tool'][fuzzyfinder_i_list[0]]])
-            return
+            return "".join([al_dict['name'][fuzzyfinder_i_list[0]], "丨", al_dict['ingredients'][fuzzyfinder_i_list[0]],
+                            "\nB站教程BV号：", al_dict['url'][fuzzyfinder_i_list[0]], "\n难度：",
+                            al_dict['difficulty'][fuzzyfinder_i_list[0]], "丨标签：", al_dict['tag'][fuzzyfinder_i_list[0]],
+                            "\n方法：", al_dict['practice'][fuzzyfinder_i_list[0]], "丨工具：",
+                            al_dict['tool'][fuzzyfinder_i_list[0]]])
+        elif collection_key[fuzzyfinder_i_list[fuzzyfinder_i_len - 1]].replace("、", "") == key.replace("、", ""):
+            return "".join([al_dict['name'][fuzzyfinder_i_list[fuzzyfinder_i_len - 1]], "丨",
+                            al_dict['ingredients'][fuzzyfinder_i_list[fuzzyfinder_i_len - 1]],
+                            "\nB站教程BV号：", al_dict['url'][fuzzyfinder_i_list[fuzzyfinder_i_len - 1]], "\n难度：",
+                            al_dict['difficulty'][fuzzyfinder_i_list[fuzzyfinder_i_len - 1]], "丨标签：",
+                            al_dict['tag'][fuzzyfinder_i_list[fuzzyfinder_i_len - 1]],
+                            "\n方法：", al_dict['practice'][fuzzyfinder_i_list[fuzzyfinder_i_len - 1]], "丨工具：",
+                            al_dict['tool'][fuzzyfinder_i_list[fuzzyfinder_i_len - 1]]])
         else:
             re_text = "未找到精准关键词，模糊搜索到以下内容：\n"
             for c in fuzzyfinder_i_list:
@@ -59,4 +66,4 @@ def get_cook(key):
 
 
 if __name__ == "__main__":
-    print(get_cook("牛肉、洋葱"))
+    print(get_cook("胡萝卜、牛肉、洋葱"))
